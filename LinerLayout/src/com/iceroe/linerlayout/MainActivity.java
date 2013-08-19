@@ -1,7 +1,8 @@
 package com.iceroe.linerlayout;
 
-import android.os.Bundle;
 import android.app.Activity;
+import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,9 +25,29 @@ public class MainActivity extends Activity {
 		linearLayout.setOrientation(LinearLayout.VERTICAL);
 		
 		toEditText = new EditText(this);
+		toEditText.setHint("To");
+		
 		subjectEditText = new EditText(this);
+		subjectEditText.setHint("Subject");
+		
 		messageEditText = new EditText(this);
+		messageEditText.setHint("Message");
+		messageEditText.setGravity(Gravity.TOP);
+		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+				LinearLayout.LayoutParams.MATCH_PARENT,
+				LinearLayout.LayoutParams.WRAP_CONTENT
+				);
+		params.weight=1;
+		messageEditText.setLayoutParams(params);
+		
 		sendButton = new Button(this);
+		sendButton.setText("Send");
+		LinearLayout.LayoutParams params2 = new LinearLayout.LayoutParams(
+				LinearLayout.LayoutParams.MATCH_PARENT,
+				LinearLayout.LayoutParams.WRAP_CONTENT
+				);
+		params2.gravity=Gravity.RIGHT;
+		sendButton.setLayoutParams(params2);
 		
 		linearLayout.addView(toEditText);
 		linearLayout.addView(subjectEditText);
